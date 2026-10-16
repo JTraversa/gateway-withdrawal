@@ -2,7 +2,7 @@
 
 A small, open-source tool for withdrawing **Circle Gateway USDC into a normal wallet balance**. Connect an existing wallet, choose the network, review the amount and fees, and sign in your wallet. No Circle account, API key or private-key import is required.
 
-**[Open the app](https://traversa-gateway-withdrawal.vercel.app)** · [Security and limitations](SECURITY.md) · [Contributing](CONTRIBUTING.md) · [MIT license](LICENSE)
+**[Open the app](https://tools.traversa.dev/gateway)** · [Security and limitations](SECURITY.md) · [Contributing](CONTRIBUTING.md) · [MIT license](LICENSE)
 
 > Experimental community software. Not affiliated with Circle and not independently audited. An external security review is still outstanding.
 
@@ -40,7 +40,7 @@ npm ci
 npm run dev
 ```
 
-Open `http://127.0.0.1:4173`. The development server includes both the frontend and local adapters for the two API functions. No environment variables or secrets are needed.
+Open `http://127.0.0.1:4173/gateway/`. The development server includes both the frontend and local adapters for the two API functions. No environment variables or secrets are needed.
 
 ```sh
 npm test
@@ -59,7 +59,9 @@ Import the repository into Vercel, using its detected Vite settings, or run:
 npx vercel --prod
 ```
 
-`vercel.json` configures the static build, API functions and security headers. Deploy both API functions; serving `dist/` alone is insufficient. Other hosts need equivalent Node.js API adapters. Apply hosting-level abuse/rate limits and monitor resource usage if you run a public instance.
+`vercel.json` configures the static build, API functions and security headers. The app is mounted at `/gateway/`; the deployment root redirects to `/gateway`. Vite assets and browser API requests are scoped to that prefix. For an external reverse proxy, forward `/gateway` and `/gateway/:path*` unchanged to the deployment. Deploy both API functions; serving `dist/` alone is insufficient. Other hosts need equivalent Node.js API adapters. Apply hosting-level abuse/rate limits and monitor resource usage if you run a public instance.
+
+Browser recovery data is tied to its origin. Before moving from a `vercel.app` URL to a custom domain, download any unfinished withdrawal's recovery file and import it on the new domain. A path change on the same origin does not change its storage.
 
 ## Architecture and privacy
 

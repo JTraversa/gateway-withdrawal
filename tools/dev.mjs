@@ -7,7 +7,8 @@ const server = await createServer({
   plugins: [{ name: 'local-api', configureServer(vite) {
     vite.middlewares.use(async (req, res, next) => {
       const url = new URL(req.url, 'http://localhost');
-      const handler = { '/api/gateway': gateway, '/api/rpc': rpc }[url.pathname];
+      const path = url.pathname.replace(/^\/gateway\//, '/');
+      const handler = { '/api/gateway': gateway, '/api/rpc': rpc }[path];
       if (!handler) return next();
       let raw = '';
       try {

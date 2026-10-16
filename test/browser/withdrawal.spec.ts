@@ -56,7 +56,7 @@ async function setup(page: Page, context: BrowserContext, options: Options = {})
     if (!(req.method in results)) throw new Error(`Unexpected RPC ${req.method}`);
     await route.fulfill({ json: { jsonrpc: '2.0', id: req.id, result: results[req.method] } });
   });
-  await page.goto('/'); await expect(page.locator('#balance')).toHaveText('—');
+  await page.goto('./'); await expect(page.locator('#balance')).toHaveText('—');
   return state;
 }
 async function connect(page: Page) { await page.locator('#connect').click(); await expect(page.locator('#balance')).toHaveText('146.44'); }

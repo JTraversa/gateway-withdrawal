@@ -18,6 +18,7 @@ The server validates the intent against its network registry and verifies the so
 - Wallet accounts, addresses, balances and network requests are visible to the hosting provider, Circle and RPC providers. The app has no database or analytics and does not intentionally log authorizations or request bodies. Infrastructure access logs may still exist.
 - A signed recovery file is an authorization, not just a receipt. Anyone with it may submit the same authorized withdrawal to its already-signed recipient. Keep it private. Import validates its signature and transfer fields but does not prove whether it has already been submitted or minted.
 - Web Locks prevent concurrent execution only among tabs on the same browser origin. They do not coordinate different browsers, devices or self-hosted instances.
+- A URL path is not a security boundary. When mounted at `/gateway` beside other tools, scripts on the same origin share browser storage and wallet-origin permissions. Treat the entire hosting origin as trusted; use a dedicated subdomain when isolation from other hosted apps is required.
 
 ## Recovery limitations
 

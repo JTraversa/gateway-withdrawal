@@ -3,6 +3,13 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "functions": { "api/*.js": { "maxDuration": 60 } },
+  "redirects": [{ "source": "/", "destination": "/gateway", "permanent": false }],
+  "rewrites": [
+    { "source": "/gateway/api/:path*", "destination": "/api/:path*" },
+    { "source": "/gateway/assets/:path*", "destination": "/assets/:path*" },
+    { "source": "/gateway", "destination": "/index.html" },
+    { "source": "/gateway/", "destination": "/index.html" }
+  ],
   "headers": [{
     "source": "/(.*)",
     "headers": [

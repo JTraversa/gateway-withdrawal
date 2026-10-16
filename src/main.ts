@@ -17,6 +17,7 @@ type Intent = ReturnType<typeof createIntent>;
 type Quote = Context & { intent: Intent; fee: string; createdAt: number };
 type Pending = { intent: Intent; signature: Hex; createdAt: number; attestation?: Hex; attestationSignature?: Hex; hash?: Hex };
 const STORAGE = 'gateway.withdrawal.v2';
+const APP_BASE = import.meta.env.BASE_URL;
 const LEGACY_STORAGE = 'traversa.gateway.withdrawal.v1';
 const wallets: Wallet[] = [];
 let provider: Provider | undefined;
@@ -33,7 +34,7 @@ for (const [key, { chain }] of Object.entries(NETWORKS)) {
   const option = document.createElement('option'); option.value = key; option.textContent = chain.name; networkSelect.appendChild(option);
 }
 function selectedNetwork() { return networkFor(networkSelect.value); }
-function publicClient(key = networkSelect.value) { return createPublicClient({ chain: networkFor(key).chain, transport: http(`/api/rpc?network=${key}`, { retryCount: 1, timeout: 20000 }) }); }
+function publicClient(key = networkSelect.value) { return createPublicClient({ chain: networkFor(key).chain, transport: http(`${APP_BASE}api/rpc?network=${key}`, { retryCount: 1, timeout: 20000 }) }); }
 function context(): Context {
   if (!account) throw new Error('Connect a wallet first.');
   return { source: account, recipient: customRecipient.checked ? recipientAddress(recipientInput.value.trim()) : account, networkKey: networkSelect.value };
@@ -47,7 +48,7 @@ function failure(error: unknown) {
   status(/reject|denied/i.test(message) ? 'You declined the wallet request. Continue when you’re ready.' : message, true);
 }
 async function api(operation: string, data: object = {}) {
-  const response = await fetch('/api/gateway', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: serialize({ operation, ...data }), signal: AbortSignal.timeout(55000) });
+  const response = await fetch(`${APP_BASE}api/gateway`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: serialize({ operation, ...data }), signal: AbortSignal.timeout(55000) });
   const result = await response.json();
   if (!response.ok || result.error || result.success === false) throw new Error(result.message || (typeof result.error === 'string' ? result.error : result.error?.message) || 'Circle could not complete this request.');
   return result;
