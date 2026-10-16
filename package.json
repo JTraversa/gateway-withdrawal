@@ -1,0 +1,19 @@
+{
+  "name": "gateway-withdrawal",
+  "version": "0.1.0",
+  "description": "Open-source, wallet-connected Circle Gateway USDC withdrawals",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/JTraversa/gateway-withdrawal.git" },
+  "engines": { "node": ">=22.18.0" },
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/dev.mjs",
+    "build": "tsc --noEmit && vite build",
+    "test": "node --test test/*.test.mjs",
+    "test:browser": "playwright test",
+    "test:live": "node test/live-check.mjs"
+  },
+  "dependencies": { "viem": "2.57.7" },
+  "devDependencies": { "typescript": "5.9.3", "vite": "7.3.7", "@types/node": "24.10.0", "@playwright/test": "1.63.0" }
+}

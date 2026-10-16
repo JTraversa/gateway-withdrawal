@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="An open-source, wallet-connected tool for withdrawing Circle Gateway USDC. Your wallet signs; you stay in control." />
+    <title>Gateway Withdraw · Open-source USDC withdrawals</title>
+  </head>
+  <body>
+    <main>
+      <header><a class="brand" href="/">GATEWAY WITHDRAW</a><a class="network" href="https://github.com/JTraversa/gateway-withdrawal" target="_blank" rel="noreferrer">Open source ↗</a></header>
+      <section class="intro"><p class="eyebrow">FOR CIRCLE GATEWAY BALANCES</p><h1>Your USDC.<br />Back in your wallet.</h1><p>Connect your wallet, review the fees, and withdraw your settled Gateway balance.</p></section>
+      <section class="card" aria-label="Gateway withdrawal">
+        <div class="balance-head"><span>Available in Gateway</span><button id="refresh" class="text-button">Refresh ↻</button></div>
+        <div class="balance"><span id="balance">—</span><span class="currency">USDC</span></div>
+        <p id="balance-note" class="muted">Connect a wallet to see your Gateway balance.</p>
+        <div class="wallet-controls"><label id="wallet-label" for="wallet-select" hidden>Choose your wallet</label><select id="wallet-select" hidden></select><button id="connect" class="primary" type="button">Connect wallet →</button></div>
+        <p id="connected" class="muted" hidden></p>
+        <div class="network-picker"><label for="network-select">Network holding your Gateway balance</label><select id="network-select"></select><p class="muted">Withdrawals arrive on the same network. <span id="network-name">Base mainnet</span>.</p></div>
+        <div class="route">
+          <div><span class="route-dot"></span><div><span class="label">FROM · CONNECTED WALLET’S GATEWAY BALANCE</span><a id="source" class="address" target="_blank" rel="noreferrer">Connect your wallet</a></div></div>
+          <div><span class="route-dot destination"></span><div><span class="label">TO · USDC RECIPIENT</span><a id="destination" class="address" target="_blank" rel="noreferrer">Connect your wallet</a></div></div>
+        </div>
+        <form id="withdraw-form">
+          <label class="checkbox-label"><input id="custom-recipient" type="checkbox" /> Send to a different address</label>
+          <div id="recipient-field" hidden><label for="recipient">Recipient address</label><input id="recipient" type="text" autocomplete="off" spellcheck="false" placeholder="0x…" /><p class="muted">Check the full address. Transfers cannot be reversed.</p></div>
+          <label for="amount">Amount to receive</label>
+          <div class="amount-input"><input id="amount" name="amount" type="text" inputmode="decimal" autocomplete="off" placeholder="0.00" aria-describedby="amount-note" required /><span>USDC</span><button id="max" type="button" class="max-button">Max</button></div>
+          <p class="muted" id="amount-note">Gateway fees are paid separately from this balance.</p>
+          <button id="review" type="submit" class="secondary" disabled>Review withdrawal <span>↗</span></button>
+        </form>
+        <section id="quote" class="quote" hidden aria-label="Review withdrawal">
+          <h2>Review withdrawal</h2>
+          <p class="muted">USDC recipient</p><p id="review-recipient" class="address"></p>
+          <dl><div><dt>Recipient receives</dt><dd id="receive-amount"></dd></div><div><dt>Circle fee estimate / allowance</dt><dd id="estimated-fee"></dd></div><div><dt>Maximum Gateway fee</dt><dd id="max-fee"></dd></div><div class="total"><dt>Maximum balance debit</dt><dd id="total"></dd></div></dl>
+          <p class="muted">You’ll sign a withdrawal authorization, then approve a transaction.</p><p id="gas-note" class="muted"></p>
+        </section>
+        <button id="execute" class="primary" type="button" hidden>Sign withdrawal <span>→</span></button>
+        <section id="recovery" class="recovery" hidden><h2>Withdrawal in progress</h2><p id="recovery-summary" class="address"></p><p>Your authorization is saved in this browser. Continue this withdrawal before starting another. Keep a recovery file before changing browsers.</p><button id="resume" type="button" class="primary">Continue withdrawal →</button><button id="download" type="button" class="text-button">Download recovery file</button></section>
+        <p id="status" role="status" aria-live="polite" hidden></p>
+        <a id="transaction" class="transaction" target="_blank" rel="noreferrer" hidden>View transaction in explorer ↗</a>
+        <details class="import"><summary>Restore a saved withdrawal</summary><p class="muted">Import your recovery JSON. Importing never starts a transfer. You’ll review its destination before continuing.</p><label for="import-file">Recovery file</label><input id="import-file" type="file" accept=".json,application/json" /></details>
+      </section>
+      <footer><span>Your wallet signs. You stay in control.</span><a href="https://github.com/JTraversa/gateway-withdrawal" target="_blank" rel="noreferrer">Source & self-hosting ↗</a></footer>
+      <p class="disclosure">Independent community tool. Not affiliated with Circle. Experimental; not independently audited. <a href="https://github.com/JTraversa/gateway-withdrawal/blob/main/SECURITY.md" target="_blank" rel="noreferrer">Security & limitations ↗</a></p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
