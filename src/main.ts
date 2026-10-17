@@ -1,4 +1,5 @@
 import './style.css';
+import './site-shell';
 import { createPublicClient, createWalletClient, custom, http, getAddress, formatEther, verifyTypedData, type EIP1193Provider, type Address, type Hex } from 'viem';
 import { GATEWAY_MINTER, DOMAIN, TYPES, MINTER_ABI, units, usdc, serialize, createIntent, validateIntent, feeCap, confirmedPayment, recipientAddress, validateRecovery, validateAttestation } from './protocol.js';
 import { NETWORKS, networkFor } from './networks.js';

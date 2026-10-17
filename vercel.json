@@ -5,6 +5,9 @@
   "functions": { "api/*.js": { "maxDuration": 60 } },
   "redirects": [{ "source": "/", "destination": "/gateway", "permanent": false }],
   "rewrites": [
+    { "source": "/gateway/fonts/:path*", "destination": "/fonts/:path*" },
+    { "source": "/gateway/theme.js", "destination": "/theme.js" },
+    { "source": "/gateway/favicon.ico", "destination": "/favicon.ico" },
     { "source": "/gateway/api/:path*", "destination": "/api/:path*" },
     { "source": "/gateway/assets/:path*", "destination": "/assets/:path*" },
     { "source": "/gateway", "destination": "/index.html" },

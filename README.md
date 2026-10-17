@@ -16,6 +16,7 @@ A small, open-source tool for withdrawing **Circle Gateway USDC into a normal wa
 - Requests a typed-data withdrawal authorization, then a wallet transaction to Circle's Gateway Minter. Your wallet holds your keys and pays native network gas.
 - Checks the attestation's packed transfer fields against the signed authorization before minting. Saves the authorization, attestation and transaction hash for recovery, with validated recovery-file import/export and same-browser tab locking.
 - Confirms success only after finding the exact USDC transfer to the reviewed recipient in a successful transaction receipt.
+- Matches the Traversa tools' header, full-screen navigation, social sidebar and light/dark theme. Uses the shared `theme` browser preference, with locally hosted Marcellus and Raleway fonts.
 
 The app does not bridge between networks, deposit USDC, redeem USDC for bank dollars, or support smart-contract/delegated-code wallets. Other Circle Gateway networks are not enabled in this first release. See [supported network configuration](src/networks.js).
 
@@ -92,3 +93,5 @@ This is an initial community release. Automated tests cover arithmetic, field va
 - [Gateway fees](https://developers.circle.com/gateway/references/fees)
 
 MIT licensed. Contributions and independent security review are welcome.
+
+The bundled Marcellus and Raleway font files are distributed under their own SIL Open Font Licenses in `public/fonts/`.
