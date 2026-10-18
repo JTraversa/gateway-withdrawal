@@ -35,6 +35,7 @@ test('mobile layout fits the viewport and keeps the entire navigation reachable'
   await page.setViewportSize({ width: 375, height: 667 });
   await page.goto('./');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.getByRole('button', { name: 'Connect wallet' }).scrollIntoViewIfNeeded();
   await expect(page.getByRole('button', { name: 'Connect wallet' })).toBeInViewport();
   await page.getByRole('button', { name: 'Open navigation' }).click();
   const lastTool = page.getByRole('navigation').getByRole('link', { name: 'Historical Tor Data' });

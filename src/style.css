@@ -25,70 +25,136 @@ button:disabled, input:disabled, select:disabled { opacity: .5; cursor: not-allo
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 [hidden] { display: none !important; }
 ::selection { background: var(--accent); color: white; }
-main { max-width: 1100px; margin: 0 auto; padding: 24px 28px 40px; }
-h1, h2, h3 { font-family: Marcellus, serif; font-weight: 400; }
-.intro { margin-bottom: 28px; }
-h1 { font-size: 2rem; line-height: 1.25; margin: 0 0 10px; }
-.intro p { color: var(--text-secondary); font-size: 14px; max-width: 720px; line-height: 1.65; margin: 0; }
-.repo-link { display: inline-flex; margin-top: 16px; padding: 8px 16px; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); font-size: 13px; transition: all .2s; }
-.repo-link:hover { border-color: var(--text-secondary); box-shadow: 4px 4px 0 var(--border); transform: translate(-2px,-2px); }
-.card { max-width: 760px; background: var(--bg-secondary); border: 1px solid var(--border); padding: 28px; }
-.balance-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; color: var(--text-secondary); }
-.balance { display: flex; align-items: baseline; gap: 12px; font-size: 42px; font-weight: 500; font-variant-numeric: tabular-nums; margin: 10px 0 0; }
-.currency { font-size: 14px; font-weight: 400; color: var(--text-muted); }
-.muted { font-size: 12px; color: var(--text-secondary); line-height: 1.65; margin: 5px 0 0; overflow-wrap: anywhere; }
-.route { margin: 24px 0; padding: 20px 16px; background: var(--bg-tertiary); border: 1px solid var(--border); }
-.route > div { display: flex; align-items: flex-start; gap: 12px; position: relative; }
-.route > div + div { margin-top: 22px; }
-.route > div:first-child::after { content: ''; position: absolute; top: 13px; left: 4px; height: 36px; border-left: 1px dashed var(--border-light); }
-.route-dot { width: 9px; height: 9px; flex-shrink: 0; border: 2px solid var(--text-muted); border-radius: 50%; margin-top: 5px; background: var(--bg-tertiary); z-index: 1; }
-.route-dot.destination { background: var(--accent); border-color: var(--accent); }
-.label { display: block; font-size: 10px; letter-spacing: .6px; color: var(--text-muted); font-weight: 600; margin-bottom: 4px; }
-.address { font-family: ui-monospace,SFMono-Regular,Consolas,monospace; font-size: 12px; overflow-wrap: anywhere; display: block; word-break: break-all; }
-.address:hover { text-decoration: underline; }
-label { display: block; font-size: 13px; margin-bottom: 9px; color: var(--text-primary); }
-.amount-input { display: flex; align-items: center; border: 1px solid var(--border); padding: 0 12px; gap: 10px; background: var(--bg-primary); }
-.amount-input:focus-within { outline: 1px solid var(--accent); }
-.amount-input input { width: 100%; min-width: 0; font-size: 24px; border: 0; background: none; outline: 0; padding: 14px 0; color: var(--text-primary); }
-.amount-input > span { font-size: 12px; color: var(--text-muted); }
-.max-button { font-size: 11px; color: var(--text-primary); background: var(--bg-tertiary); border: 1px solid var(--border); padding: 5px 8px; }
-.primary, .secondary { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 14px 16px; font-size: 13px; font-weight: 500; background: var(--bg-tertiary); color: var(--text-primary); border: 1px solid var(--border); transition: all .2s; }
-.primary:hover:not(:disabled), .secondary:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); box-shadow: 4px 4px 0 var(--accent); transform: translate(-2px,-2px); }
-.secondary { margin-top: 18px; }
-.text-button { border: 0; background: none; font-size: 12px; padding: 4px 0; color: var(--text-secondary); }
-.text-button:hover { color: var(--accent); }
-.wallet-controls { margin-top: 16px; }
-select { font-size: 13px; width: 100%; padding: 12px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary); border-radius: 0; }
-.wallet-controls select { margin-bottom: 12px; }
-.network-picker { margin-top: 24px; }
-.checkbox-label { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
-.checkbox-label input { accent-color: var(--accent); }
-#recipient-field { margin-bottom: 20px; }
-#recipient { width: 100%; padding: 12px; border: 1px solid var(--border); background: var(--bg-primary); font-family: ui-monospace,monospace; font-size: 13px; color: var(--text-primary); }
-.quote { border-top: 1px solid var(--border); margin-top: 24px; padding-top: 20px; }
-.quote h2, .recovery h2 { font-size: 20px; margin: 0 0 12px; }
-#review-recipient { margin: 4px 0 16px; }
-dl { font-size: 12px; margin: 0 0 14px; }
-dl > div { display: flex; justify-content: space-between; gap: 15px; padding: 5px 0; }
-dt { color: var(--text-secondary); }
-dd { margin: 0; font-variant-numeric: tabular-nums; text-align: right; }
-.total { border-top: 1px solid var(--border); margin-top: 8px; padding-top: 12px; }
-.total dt, .total dd { font-weight: 600; color: var(--text-primary); }
-#execute { margin-top: 16px; }
-#connected { margin-top: 10px; }
-.notice, .error { font-size: 12px; padding: 13px 14px; margin: 16px 0 0; overflow-wrap: anywhere; background: var(--success-bg); color: var(--success-text); border-left: 2px solid currentColor; }
-.error { background: var(--error-bg); color: var(--error-text); }
-.transaction { font-size: 12px; text-decoration: underline; display: block; margin-top: 12px; }
-.recovery { margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border); }
-.recovery p { font-size: 12px; color: var(--text-secondary); }
-.recovery .text-button { margin-top: 12px; }
-.import { border-top: 1px solid var(--border); margin-top: 24px; padding-top: 16px; font-size: 12px; color: var(--text-secondary); }
-.import summary { cursor: pointer; }
-.import label { margin-top: 12px; }
-.import input { max-width: 100%; font-size: 12px; }
-main > footer { display: flex; justify-content: space-between; gap: 14px; max-width: 760px; padding-top: 22px; color: var(--text-muted); font-size: 12px; }
-.disclosure { max-width: 760px; font-size: 11px; line-height: 1.7; color: var(--text-secondary); margin-top: 16px; }
-.disclosure a { text-decoration: underline; }
+/* Gateway keeps its original soft green palette and rounded withdrawal card. */
+main {
+  --gw-text: #19352a;
+  --gw-canvas: #f4f5f0;
+  --gw-card: #fff;
+  --gw-border: #dfe3d8;
+  --gw-border-soft: #e9ece3;
+  --gw-muted: #738076;
+  --gw-faint: #8b9589;
+  --gw-accent: #355a38;
+  --gw-button: #27472e;
+  --gw-button-hover: #345c3d;
+  --gw-soft: #f5f7f0;
+  --gw-route-border: #a0ac95;
+  --gw-focus: #93ac83;
+  --gw-notice: #f0f5e9;
+  --gw-notice-text: #36502d;
+  --gw-error: #fdf1e9;
+  --gw-error-text: #8b492a;
+}
+[data-theme="dark"] main {
+  --gw-text: #e1eadd;
+  --gw-canvas: #151b16;
+  --gw-card: #1c251e;
+  --gw-border: #344335;
+  --gw-border-soft: #2d392d;
+  --gw-muted: #a3b09c;
+  --gw-faint: #93a38e;
+  --gw-accent: #b0c69f;
+  --gw-button: #355d3e;
+  --gw-button-hover: #426e4a;
+  --gw-soft: #222e24;
+  --gw-route-border: #64775a;
+  --gw-focus: #9cbb88;
+  --gw-notice: #293b26;
+  --gw-notice-text: #c0d7b0;
+  --gw-error: #3a2b22;
+  --gw-error-text: #ebbb9a;
+}
+body { background: #f4f5f0; }
+[data-theme="dark"] body { background: #151b16; }
+main { max-width:740px;margin:0 auto;padding:34px 28px 30px }
+main header { display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:34px;border-bottom:1px solid var(--gw-border) }
+main a { color:inherit;text-decoration:none }
+main .brand { font-size:13px;font-weight:750;letter-spacing:1.7px }
+main .brand span { font-weight:400;color:var(--gw-muted);letter-spacing:0;margin-left:8px }
+main .network { font-size:12px;color:var(--gw-muted);display:flex;align-items:center;gap:7px }
+main .network i { height:7px;width:7px;background:#2460ee;border-radius:50% }
+main .intro { padding:42px 0 27px }
+main .eyebrow { font-size:10px;letter-spacing:2px;font-weight:700;color:var(--gw-muted);margin:0 0 14px }
+main h1 { font-size:clamp(36px,6vw,49px);line-height:1.1;letter-spacing:-2px;font-weight:550;margin:0 0 18px }
+main .intro>p:last-child { font-size:14px;color:var(--gw-muted);max-width:390px;margin-bottom:0 }
+main .card { background:var(--gw-card);border:1px solid var(--gw-border);border-radius:16px;padding:28px;box-shadow:0 6px 24px #15302004 }
+main .balance-head { display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:13px;color:var(--gw-muted) }
+main .balance { display:flex;align-items:baseline;gap:10px;font-size:46px;font-weight:500;letter-spacing:-2px;font-variant-numeric:tabular-nums;margin:9px 0 0 }
+main .currency { font-size:14px;letter-spacing:0;font-weight:450;color:var(--gw-faint) }
+main .muted { font-size:12px;color:var(--gw-muted);line-height:1.6;margin:5px 0 0;overflow-wrap:anywhere }
+main .route { margin:26px 0;padding:20px 16px;background:var(--gw-soft);border:1px solid var(--gw-border-soft);border-radius:10px }
+main .route>div { display:flex;align-items:flex-start;gap:12px;position:relative }
+main .route>div+div { margin-top:22px }
+main .route>div:first-child:after { content:"";position:absolute;top:13px;left:4px;height:36px;border-left:1px dashed var(--gw-route-border) }
+main .route-dot { width:9px;height:9px;flex-shrink:0;border:2px solid var(--gw-route-border);border-radius:50%;margin-top:5px;background:var(--gw-soft);z-index:1 }
+main .route-dot.destination { background:var(--gw-accent);border-color:var(--gw-accent) }
+main .label { display:block;font-size:9px;letter-spacing:1.3px;color:var(--gw-muted);font-weight:650;margin-bottom:4px }
+main .address { font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:11px;overflow-wrap:anywhere;display:block;word-break:break-all }
+main .address:hover { text-decoration:underline }
+main label { display:block;font-size:13px;margin-bottom:9px;color:var(--gw-accent) }
+main .amount-input { display:flex;align-items:center;border:1px solid var(--gw-border);border-radius:8px;padding:0 12px;gap:10px }
+main .amount-input:focus-within { outline:2px solid var(--gw-focus);outline-offset:2px }
+main .amount-input input { width:100%;min-width:0;font:inherit;font-size:24px;letter-spacing:-.6px;border:0;background:none;outline:0;padding:14px 0;color:var(--gw-text) }
+main .amount-input>span { font-size:12px;color:var(--gw-muted) }
+main .max-button { font-size:11px;color:var(--gw-accent);background:var(--gw-soft);border:0;padding:5px 8px;border-radius:4px }
+main .primary, main .secondary { display:flex;justify-content:space-between;align-items:center;width:100%;padding:14px 17px;border-radius:8px;font:inherit;font-size:13px;cursor:pointer }
+main .primary { background:var(--gw-button);color:white;border:1px solid var(--gw-button) }
+main .primary:hover { background:var(--gw-button-hover) }
+main .secondary { background:var(--gw-card);border:1px solid var(--gw-border);color:var(--gw-accent);margin-top:18px }
+main .secondary:hover { background:var(--gw-soft) }
+main button { cursor:pointer }
+main button:disabled { opacity:.45;cursor:not-allowed }
+main .text-button { border:0;background:none;font:inherit;font-size:11px;padding:4px 0;color:var(--gw-accent) }
+main .wallet-controls { margin-top:13px }
+main .wallet-controls select { width:100%;padding:10px;border:1px solid var(--gw-border);border-radius:8px;background:var(--gw-card);margin-bottom:12px;font:inherit;font-size:13px }
+main .quote { border-top:1px solid var(--gw-border-soft);margin-top:24px;padding-top:19px }
+main .quote h2, main .recovery h2 { font-size:14px;font-weight:600;margin:0 0 12px }
+main dl { font-size:12px;margin:0 0 14px }
+main dl>div { display:flex;justify-content:space-between;gap:15px;padding:5px 0 }
+main dt { color:var(--gw-muted) }
+main dd { margin:0;font-variant-numeric:tabular-nums;text-align:right }
+main .total { border-top:1px solid var(--gw-border-soft);margin-top:8px;padding-top:12px }
+main .total dt, main .total dd { font-weight:600;color:var(--gw-accent) }
+main #execute { margin-top:16px }
+main #connected { margin-top:10px }
+main .notice, main .error { font-size:12px;padding:13px 14px;border-radius:8px;margin:16px 0 0;overflow-wrap:anywhere;background:var(--gw-notice);color:var(--gw-notice-text) }
+main .error { background:var(--gw-error);color:var(--gw-error-text) }
+main .transaction { font-size:12px;text-decoration:underline;display:block;margin-top:12px }
+main .recovery { margin-top:20px;padding-top:18px;border-top:1px solid var(--gw-border) }
+main .recovery p { font-size:12px;color:var(--gw-muted) }
+main .recovery .text-button { margin-top:12px }
+main footer { display:flex;justify-content:space-between;gap:14px;padding-top:22px;color:var(--gw-faint);font-size:10px }
+main footer a:hover { text-decoration:underline }
+main [hidden] { display:none!important }
+main :focus-visible { outline:2px solid var(--gw-focus);outline-offset:4px }
+@media(max-width:520px) {
+main { padding:23px 18px }
+main .brand span { display:none }
+main .intro { padding-top:34px }
+main .card { padding:21px }
+main .balance { font-size:40px }
+main .address { font-size:10px }
+main .route { padding:16px 12px }
+main footer { flex-direction:column;gap:6px }
+main .network { font-size:11px }
+}
+main select { font:inherit;font-size:13px;width:100%;padding:12px;border:1px solid var(--gw-border);border-radius:8px;background:var(--gw-card);color:var(--gw-text) }
+main .network-picker { margin-top:24px }
+main .checkbox-label { display:flex;align-items:center;gap:8px;margin-bottom:16px }
+main .checkbox-label input { accent-color:var(--gw-button) }
+main #recipient-field { margin-bottom:20px }
+main #recipient { width:100%;padding:12px;border:1px solid var(--gw-border);border-radius:8px;font-family:ui-monospace,monospace;font-size:13px;color:var(--gw-text) }
+main .import { border-top:1px solid var(--gw-border-soft);margin-top:24px;padding-top:16px;font-size:12px;color:var(--gw-muted) }
+main .import summary { cursor:pointer }
+main .import label { margin-top:12px }
+main .import input { max-width:100%;font-size:12px }
+main .disclosure { font-size:11px;line-height:1.7;color:var(--gw-muted);margin-top:16px }
+main .disclosure a { text-decoration:underline }
+main #review-recipient { font-size:12px;margin:4px 0 16px }
+main { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--gw-text); }
+main h1, main h2, main h3 { font-family: inherit; }
+main .gateway-header { display: flex; }
+
 /* The same fixed header, frame, navigation and social rail as the other tools. */
 .site-header { position: fixed; top: 10px; left: 10px; right: 10px; padding: 0 8px; z-index: 1000; }
 .header-left { display: flex; align-items: center; }
@@ -130,10 +196,6 @@ main > footer { display: flex; justify-content: space-between; gap: 14px; max-wi
 }
 @media (max-width: 600px) {
   body { border-left: 0; }
-  main { padding: 20px 20px 30px; }
-  .card { padding: 20px; }
-  .balance { font-size: 36px; }
-  main > footer { flex-direction: column; gap: 8px; }
   .nav-menu { padding-top: 80px; padding-bottom: 100px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
